@@ -10,6 +10,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
 
 # Build python package
 option(BUILD_PYTHON_PACKAGE "build python package" OFF)
+add_definitions(-DBUILD_PYTHON_PACKAGE)
 
 # GCC need to link against stdc++fs
 if(MSVC)
