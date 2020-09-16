@@ -16,8 +16,9 @@
 Ubuntu下以测试完成
 
 1. opencv3 以及更高版本 
-2. libtorch 已被添加进`thirdpart`文件夹 无需安装
-3. pybind11 已被添加进`thirdpart`文件夹 无需安装
+2. CUDA
+3. libtorch 已被添加进`thirdpart`文件夹 无需安装
+4. pybind11 已被添加进`thirdpart`文件夹 无需安装
 
 模型权重文件：
 - [YOLOv3](https://pjreddie.com/media/files/yolov3.weights)
