@@ -26,7 +26,7 @@ public:
 
     std::vector<std::vector<float>> update(const std::vector<cv::Rect2f> &detections, cv::Mat ori_img);
 #ifdef BUILD_PYTHON_PACKAGE
-    std::vector<std::vector<float>> updateFromPy(const py::array_t<float> x1y1x2y2,
+    std::vector<std::vector<float>> updateFromPy(py::array_t<float> x1y1x2y2,
                                     py::array_t<unsigned char>& ori_img);
 #endif
 

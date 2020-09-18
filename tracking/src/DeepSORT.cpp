@@ -75,7 +75,7 @@ vector<vector<float>> DeepSORT::update(const std::vector<cv::Rect2f> &detections
 }
 
 #ifdef BUILD_PYTHON_PACKAGE
-vector<vector<float>> DeepSORT::updateFromPy(const py::array_t<float> x1y1x2y2,
+vector<vector<float>> DeepSORT::updateFromPy(py::array_t<float> x1y1x2y2,
                                      py::array_t<unsigned char>& ori_img) {
     std::vector<cv::Rect2f> detestions;
     py::buffer_info x1y1x2y2_buf = x1y1x2y2.request();
