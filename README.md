@@ -24,11 +24,19 @@ Ubuntu下以测试完成
 - [YOLOv3](https://pjreddie.com/media/files/yolov3.weights)
 
 #### 编译
-1. 编译c++ demo以及动态库
+1. 编译c++动态库
 ```
 mkdir build
 cd build
-cmake -DBUILD_PYTHON_PACKAGE=OFF ..
+cmake ..
+make -j2
+```
+
+2. 编译c++ demo 
+```
+mkdir build
+cd build
+cmake -DBUILD_DEMO=ON ..
 make -j2
 ```
 
