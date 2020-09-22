@@ -15,7 +15,7 @@ cap = cv.VideoCapture(video_path)
 width, height = 910, 512    # 720P resize to 512x910
 
 thresh = 0.7
-tracker = tracking.deepsort(width, height)
+tracker = tracking.deepsort(width, height, "weigth/ckpt.bin")
 
 while (cap.isOpened()):
     ret, frame = cap.read()

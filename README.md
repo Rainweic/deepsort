@@ -22,6 +22,7 @@ Ubuntu下以测试完成
 
 模型权重文件：
 - [YOLOv3](https://pjreddie.com/media/files/yolov3.weights)
+- [Deepsort](https://pan.baidu.com/s/1otqi1eYsVTsTQv5N7e5cXQ)  提取码: 4sht
 
 #### 编译
 1. 编译c++动态库
@@ -43,11 +44,11 @@ make -j2
 运行c++ demo：
 ```
 cd build/bin
-./demo xxx.mp4
+./demo /path/to/xxx.mp4
 ```
 
 **注意**：
-运行demo请先修改`demo/c++/main.cpp`中的yolo权重路径
+运行demo请先修改`demo/c++/main.cpp`中的yolo、deepsort权重路径
 
 2. 编译python库
 ```
