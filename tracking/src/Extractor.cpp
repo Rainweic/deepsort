@@ -124,8 +124,8 @@ void NetImpl::load_form(const std::string &bin_path) {
     fs.close();
 }
 
-Extractor::Extractor() {
-    net->load_form("weights/ckpt.bin");
+Extractor::Extractor(const string weight_path) {
+    net->load_form(weight_path);
     net->to(torch::kCUDA);
     net->eval();
 }
@@ -148,5 +148,6 @@ torch::Tensor Extractor::extract(vector<cv::Mat> input) {
         resized.push_back(torch::from_blob(x.data, {128, 64, 3}));
     }
     auto tensor = torch::stack(resized).cuda().permute({0, 3, 1, 2}).sub_(MEAN).div_(STD);
+
     return net(tensor);
 }

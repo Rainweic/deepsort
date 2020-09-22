@@ -22,7 +22,7 @@ TORCH_MODULE(Net);
 
 class Extractor {
 public:
-    Extractor();
+    Extractor(const std::string weight_path);
 
     torch::Tensor extract(std::vector<cv::Mat> input); // return GPUTensor
 

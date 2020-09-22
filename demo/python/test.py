@@ -6,10 +6,10 @@ from mxnet import nd
 from gluoncv import model_zoo, utils, data
 
 # load net
-net = model_zoo.get_model('ssd_512_resnet50_v1_voc', pretrained=True, ctx=mxnet.gpu())
+net = model_zoo.get_model('yolo3_darknet53_coco', pretrained=True, ctx=mxnet.gpu())
 
 # read video
-video_path = "/home/rainweic/桌面/test.mp4"
+video_path = "/home/rainweic/桌面/test.avi"
 
 cap = cv.VideoCapture(video_path)
 width, height = 910, 512    # 720P resize to 512x910
@@ -21,7 +21,7 @@ while (cap.isOpened()):
     ret, frame = cap.read()
 
     # 预处理图片 将720p缩放为512x910
-    x, img = data.transforms.presets.ssd.transform_test(nd.array(frame),
+    x, img = data.transforms.presets.yolo.transform_test(nd.array(frame),
                                                         short=512)
     class_IDs, scores, bounding_boxes = net(x.as_in_context(mxnet.gpu()))
 
@@ -36,6 +36,7 @@ while (cap.isOpened()):
 
     out = tracker.update(bounding_boxes, img)
 
+    img = cv.resize(frame, (width, height))
     if (len(out) > 0):
         for box in out:
             img = cv.rectangle(

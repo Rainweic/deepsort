@@ -10,13 +10,14 @@
 using namespace std;
 
 int main(int argc, const char *argv[]) {
+
     if (argc < 2 || argc > 3) {
         throw runtime_error("usage: processing <input path> [<scale factor>]");
     }
     auto input_path = string(argv[1]);
     auto scale_factor = argc == 3 ? stoi(argv[2]) : 1;
-
     cv::VideoCapture cap(input_path);
+
     if (!cap.isOpened()) {
         throw runtime_error("Cannot open cv::VideoCapture");
     }
@@ -25,15 +26,15 @@ int main(int argc, const char *argv[]) {
     array<int64_t, 2> inp_dim;
     for (size_t i = 0; i < 2; ++i) {
         auto factor = 1 << 5;
-        inp_dim[i] = (orig_dim[i] / scale_factor / factor + 1) * factor;
+        inp_dim[i] = (orig_dim[i] / 1 / factor + 1) * factor;
     }
 
     // edit yolo weight's path
     Detector detector(
             inp_dim,
-            "yolov3.cfg",
-            "yolov3.weights");
-    DeepSORT tracker(orig_dim);
+            "weight/yolov3.cfg",
+            "weight/yolov3.weights");
+    DeepSORT tracker(orig_dim, "weight/ckpt.bin");
 
     auto image = cv::Mat();
     cv::namedWindow("Output", cv::WINDOW_NORMAL | cv::WINDOW_KEEPRATIO);

@@ -19,8 +19,8 @@ class FeatureMetric;
 
 class TRACKING_EXPORT DeepSORT {
 public:
-    explicit DeepSORT(const std::array<int64_t, 2> &dim);
-    explicit DeepSORT(const int width, const int height);
+    explicit DeepSORT(const std::array<int64_t, 2> &dim, const std::string weight_path);
+    explicit DeepSORT(const int width, const int height, const std::string weight_path);
 
     ~DeepSORT();
 

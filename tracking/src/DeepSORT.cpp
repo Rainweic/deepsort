@@ -12,14 +12,14 @@ struct DeepSORT::TrackData {
     FeatureBundle feats;
 };
 
-DeepSORT::DeepSORT(const array<int64_t, 2> &dim)
-        : extractor(make_unique<Extractor>()),
+DeepSORT::DeepSORT(const array<int64_t, 2> &dim, const string weight_path)
+        : extractor(make_unique<Extractor>(weight_path)),
           manager(make_unique<TrackerManager<TrackData>>(data, dim)),
           feat_metric(make_unique<FeatureMetric<TrackData>>(data)) {}
 
-DeepSORT::DeepSORT(const int width, const int height) {
+DeepSORT::DeepSORT(const int width, const int height, const string weight_path) {
     array<int64_t, 2> ori_dim{int64_t(height), int64_t(width)};
-    new (this) DeepSORT(ori_dim);
+    new (this) DeepSORT(ori_dim, weight_path);
 }
 
 DeepSORT::~DeepSORT() = default;
@@ -103,7 +103,7 @@ vector<vector<float>> DeepSORT::updateFromPy(py::array_t<float> x1y1x2y2,
 
 PYBIND11_MODULE(tracking, m) {
     py::class_<DeepSORT>(m, "deepsort")
-            .def(py::init<int, int>())
+            .def(py::init<int, int, string>())
             .def("update", &DeepSORT::updateFromPy);
 }
 #endif
