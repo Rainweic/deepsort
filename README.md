@@ -21,7 +21,8 @@ Ubuntu下以测试完成
 3. pybind11 已被添加进`thirdpart`文件夹 无需安装
 
 模型权重文件：
-- [YOLOv3](https://pjreddie.com/media/files/yolov3.weights)
+- [YOLOv3 下载地址1](https://pjreddie.com/media/files/yolov3.weights)
+- [YOLOv3 下载地址2](https://pan.baidu.com/s/12z9RBGyZDGpepL4nC8-P3g) 提取码: 9t4f
 - [Deepsort](https://pan.baidu.com/s/1otqi1eYsVTsTQv5N7e5cXQ)  提取码: 4sht
 
 #### 编译
