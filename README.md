@@ -16,8 +16,8 @@
 Ubuntu下以测试完成
 
 1. opencv3 以及更高版本 
-2. CUDA
-3. libtorch [下载地址 V1.51](https://download.pytorch.org/libtorch/cu101/libtorch-cxx11-abi-shared-with-deps-1.5.1%2Bcu101.zip) 下载完成后复制进`thirdpart`文件夹即可
+2. CUDA [版本不同libtorch要更换对应版本]
+3. libtorch [下载地址 V1.51 cuda10.1](https://download.pytorch.org/libtorch/cu101/libtorch-cxx11-abi-shared-with-deps-1.5.1%2Bcu101.zip) 下载完成后复制进`thirdpart`文件夹即可
 3. pybind11 已被添加进`thirdpart`文件夹 无需安装
 
 模型权重文件：
